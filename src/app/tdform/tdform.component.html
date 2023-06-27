@@ -1,0 +1,68 @@
+<div class="card mx-auto" style="width: 50%;">
+    <div class="card-header text-center"> SignUp </div>
+    <div class="card-body">
+      <form #tdform=ngForm (ngSubmit)="show(tdform)">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" ngModel name="name" required placeholder="Enter Full Name">
+          <div *ngIf="tdform.controls['name']?.['touched'] && tdform.controls['name']?.['errors']" class="text-danger font-weight-bold">
+            <div *ngIf="tdform.controls['name']?.['errors']?.['required']">
+              Name Required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" ngModel name="email" aria-describedby="emailHelp" required email
+            placeholder="Enter email">
+          <div *ngIf="tdform.controls['email']?.['touched'] && tdform.controls['email']?.['errors']" class="text-danger font-weight-bold">
+            <div *ngIf="tdform.controls['email']?.['errors']?.['required']">
+              Email Required
+            </div>
+            <div *ngIf="tdform.controls['email']?.['errors']?.['email']">
+              Inavlid Email
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" ngModel name="password" required minlength="5"
+            placeholder="Enter Password">
+          <div *ngIf="tdform.controls['password']?.['touched'] && tdform.controls['password']?.['errors']"
+            class="text-danger font-weight-bold">
+            <div *ngIf="tdform.controls['password']?.['errors']?.['required']">
+              Password Required
+            </div>
+            <div *ngIf="tdform.controls['password']?.['errors']?.['minlength']">
+              Must Contain 5 Letters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Confirmpassword">Confirm Password</label>
+          <input type="password" class="form-control" ngModel name="Confirmpassword" required
+            placeholder="Confirm Password">
+          <div *ngIf="tdform.controls['Confirmpassword']?.['touched']" class="text-danger font-weight-bold">
+            <div *ngIf="tdform.controls['Confirmpassword']?.['errors']?.['required']">
+              Password Required
+            </div>
+            <div *ngIf="tdform.controls['password']?.['value'] != tdform.controls['Confirmpassword']?.['value']"
+              class="errormsg">
+              Password Not Matched
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="tdform.invalid">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-6 text-center">
+        Name: {{tdform.value.name}}
+      </div>
+      <div class="col-6 text-center">
+        Mail: {{tdform.value.email}}
+      </div>
+    </div>
+  </div>
