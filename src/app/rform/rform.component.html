@@ -1,12 +1,12 @@
 <div class="card mx-auto" style="width: 50%;">
     <div class="card-header text-center"> SignUp </div>
     <div class="card-body">
-      <form [formGroup]="login" (ngSubmit)="show(login)">
+      <form [formGroup]="login" (ngSubmit)="onsubmit(login)">
         <div class="form-group">
           <label>Name</label>
           <input type="text" class="form-control" name="name" formControlName="name"  placeholder="Enter Full Name">
-          <div *ngIf="login.controls['name']?.['touched'] && login.controls['name']?.['errors']" class="text-danger font-weight-bold">
-            <div *ngIf="login.controls['name']?.['errors']?.['required']">
+          <div *ngIf="f['name']?.['touched'] && f['name']?.['errors']" class="text-danger font-weight-bold">
+            <div *ngIf="f['name']?.['errors']?.['required']">
               Name Required
             </div>
           </div>
@@ -14,11 +14,11 @@
         <div class="form-group">
           <label for="email">Email address</label>
           <input type="email" class="form-control" name="email" formControlName="email" placeholder="Enter email">
-          <div *ngIf="login.controls['email']?.['touched'] && login.controls['email']?.['errors']" class="text-danger font-weight-bold">
-            <div *ngIf="login.controls['email']?.['errors']?.['required']">
+          <div *ngIf="f['email']?.['touched'] && f['email']?.['errors']" class="text-danger font-weight-bold">
+            <div *ngIf="f['email']?.['errors']?.['required']">
               Email Required
             </div>
-            <div *ngIf="login.controls['email']?.['errors']?.['email']">
+            <div *ngIf="f['email']?.['errors']?.['email']">
               Inavlid Email
             </div>
           </div>
@@ -27,12 +27,12 @@
           <label for="password">Password</label>
           <input type="password" class="form-control" name="password" formControlName="password" minlength="5"
             placeholder="Enter Password">
-          <div *ngIf="login.controls['password']?.['touched'] && login.controls['password']?.['errors']"
+          <div *ngIf="f['password']?.['touched'] && f['password']?.['errors']"
             class="text-danger font-weight-bold">
-            <div *ngIf="login.controls['password']?.['errors']?.['required']">
+            <div *ngIf="f['password']?.['errors']?.['required']">
               Password Required
             </div>
-            <div *ngIf="login.controls['password']?.['errors']?.['minlength']">
+            <div *ngIf="f['password']?.['errors']?.['minlength']">
               Must Contain 5 Letters
             </div>
           </div>
@@ -40,11 +40,11 @@
         <div class="form-group">
           <label for="Confirmpassword">Confirm Password</label>
           <input type="password" class="form-control" name="Confirmpassword" formControlName="Confirmpassword" placeholder="Confirm Password">
-          <div *ngIf="login.controls['Confirmpassword']?.['touched']" class="text-danger font-weight-bold">
-            <div *ngIf="login.controls['Confirmpassword']?.['errors']?.['required']">
+          <div *ngIf="f['Confirmpassword']?.['touched']" class="text-danger font-weight-bold">
+            <div *ngIf="f['Confirmpassword']?.['errors']?.['required']">
               Password Required
             </div>
-            <div *ngIf="login.controls['password']?.['value'] != login.controls['Confirmpassword']?.['value']"
+            <div *ngIf="f['password']?.['value'] != f['Confirmpassword']?.['value']"
               class="errormsg">
               Password Not Matched
             </div>
