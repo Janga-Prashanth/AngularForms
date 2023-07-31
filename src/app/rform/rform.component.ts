@@ -30,6 +30,14 @@ export class RformComponent implements OnInit{
      return this.login.controls; 
     }
 
+  getC(control:any){             //getting control
+    return this.login.get(control)
+  }
+
+  getE(control:any){          //getting control errors
+    return this.login.get(control)?.['errors'];
+  }
+
   onsubmit(r: any) {
       if (this.login.invalid) {
         return;
