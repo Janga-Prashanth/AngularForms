@@ -1,7 +1,8 @@
-<div class="card mx-auto" style="width: 50%;">
+<div class="card mx-auto w-50">
   <div class="card-header text-center"> SignUp </div>
   <div class="card-body">
     <form [formGroup]="login" (ngSubmit)="onsubmit(login)">
+
       <div class="form-group">
         <label>Name</label>
         <input type="text" class="form-control" name="name" formControlName="name" placeholder="Enter Full Name">
@@ -12,6 +13,7 @@
           </div>
         </div>
       </div>
+
       <div class="form-group">
         <label for="email">Email address</label>
         <input type="email" class="form-control" name="email" formControlName="email" placeholder="Enter email">
@@ -25,6 +27,7 @@
           </div>
         </div>
       </div>
+
       <div class="form-group">
         <label for="password">Password</label>
         <input type="password" class="form-control" name="password" formControlName="password" minlength="5"
@@ -39,6 +42,7 @@
           </div>
         </div>
       </div>
+
       <div class="form-group">
         <label for="Confirmpassword">Confirm Password</label>
         <input type="password" class="form-control" name="Confirmpassword" formControlName="Confirmpassword"
@@ -52,6 +56,7 @@
           </div>
         </div>
       </div>
+
       <button type="submit" class="btn btn-primary" [disabled]="login.invalid">Submit</button>
     </form>
   </div>

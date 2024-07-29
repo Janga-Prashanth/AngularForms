@@ -1,19 +1,19 @@
-<div class="card mx-auto" style="width: 50%;">
+<div class="card mx-auto w-50">
     <div class="card-header text-center"> SignUp </div>
     <div class="card-body">
       <form #tdform=ngForm (ngSubmit)="show(tdform)">
         <div class="form-group">
           <label>Name</label>
-          <input type="text" class="form-control" ngModel name="name" required placeholder="Enter Full Name">
-          <div *ngIf="tdform.controls['name']?.['touched'] && tdform.controls['name']?.['errors']" class="text-danger font-weight-bold">
-            <div *ngIf="tdform.controls['name']?.['errors']?.['required']">
+          <input type="text" class="form-control" ngModel name="uname" #un="ngModel" required placeholder="Enter Full Name">
+          <div *ngIf="tdform.controls['uname']?.['touched'] && tdform.controls['uname']?.['errors']" class="text-danger font-weight-bold">
+            <div *ngIf="tdform.controls['uname']?.['errors']?.['required']">
               Name Required
             </div>
           </div>
         </div>
         <div class="form-group">
           <label for="email">Email address</label>
-          <input type="email" class="form-control" ngModel name="email" aria-describedby="emailHelp" required email
+          <input type="email" class="form-control" ngModel name="email" #mail="ngModel" aria-describedby="emailHelp" required email
             placeholder="Enter email">
           <div *ngIf="tdform.controls['email']?.['touched'] && tdform.controls['email']?.['errors']" class="text-danger font-weight-bold">
             <div *ngIf="tdform.controls['email']?.['errors']?.['required']">
@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" class="form-control" ngModel name="password" required minlength="5"
+          <input type="password" class="form-control" ngModel name="password" #pwd="ngModel" required minlength="5"
             placeholder="Enter Password">
           <div *ngIf="tdform.controls['password']?.['touched'] && tdform.controls['password']?.['errors']"
             class="text-danger font-weight-bold">
@@ -40,7 +40,7 @@
         </div>
         <div class="form-group">
           <label for="Confirmpassword">Confirm Password</label>
-          <input type="password" class="form-control" ngModel name="Confirmpassword" required
+          <input type="password" class="form-control" ngModel name="Confirmpassword" #cpwd="ngModel" required
             placeholder="Confirm Password">
           <div *ngIf="tdform.controls['Confirmpassword']?.['touched']" class="text-danger font-weight-bold">
             <div *ngIf="tdform.controls['Confirmpassword']?.['errors']?.['required']">
@@ -56,10 +56,11 @@
       </form>
     </div>
   </div>
+
   <div class="container">
     <div class="row">
       <div class="col-6 text-center">
-        Name: {{tdform.value.name}}
+        Name: {{tdform.value.uname}}
       </div>
       <div class="col-6 text-center">
         Mail: {{tdform.value.email}}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl,FormGroup,FormBuilder, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-rform',
@@ -22,21 +22,8 @@ export class RformComponent implements OnInit{
     email: [null, [Validators.required, Validators.email], null],
     password: [null, [Validators.required, Validators.minLength(5)], null],
     Confirmpassword: [null, [Validators.required], null]
-
   })
 }
-
-  get f() {
-     return this.login.controls; 
-    }
-
-  getC(control:any){             //getting control
-    return this.login.get(control)
-  }
-
-  getE(control:any){          //getting control errors
-    return this.login.get(control)?.['errors'];
-  }
 
   onsubmit(r: any) {
       if (this.login.invalid) {
@@ -47,5 +34,17 @@ export class RformComponent implements OnInit{
       r.reset();
     }    
   }
+
+  get f() {
+    return this.login.controls; 
+   }
+
+ getC(control:any){             //getting control
+   return this.login.get(control)
+ }
+
+ getE(control:any){          //getting control errors
+   return this.login.get(control)?.['errors'];
+ }
 
 }
